@@ -1,39 +1,58 @@
+# 📅 Calendar — EventKit + SwiftUI Demo
 
-# 🚀 Getting Started
+A SwiftUI demo showing how to read and create calendar events using the EventKit framework — with a custom event list, a create-event sheet, and the native `EKEventEditViewController` bridge.
 
-## 1. Clone the Repo
+---
+
+## 🤔 What this is
+
+This project connects your SwiftUI app to the user's native Calendar via `EventKit`. It shows how to request calendar access, fetch upcoming events, display them in a list, and create new events — both with a custom SwiftUI form and via the native system event editor. An `EventEditBridge` wraps the `UIViewControllerRepresentable` so the system sheet drops cleanly into SwiftUI.
+
+## ✅ Why you'd use it
+
+- **Two creation paths** — custom `CreateEventView` and the native `EKEventEditViewController` via `EventEditBridge`
+- **`CalendarManager` included** — `@Observable` class handles auth, fetch, and save in one place
+- **`EventRowView`** — clean list row with date, time, and calendar colour dot, ready to reuse
+- **Covers the gotchas** — authorization flow, calendar selection, and time zone handling all addressed
+
+## 📺 Watch on YouTube
+
+[![Watch on YouTube](https://img.shields.io/badge/YouTube-Watch%20the%20Tutorial-red?style=for-the-badge&logo=youtube)](https://youtu.be/5bZUVNO6rxo)
+
+> This project was built for the [NoahDoesCoding YouTube channel](https://www.youtube.com/@NoahDoesCoding97). Subscribe for weekly SwiftUI tutorials.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repo
 ```bash
-git clone https://github.com/NDCSwift/REPO-NAME.git
-cd REPO-NAME
+git clone https://github.com/NDCSwift/SwiftUICalendarDemo.git
+cd SwiftUICalendarDemo
 ```
-Or select “Clone Git Repository…” when Xcode launches.
 
-⸻
+### 2. Open in Xcode
+Double-click `SwiftUICalendarDemo.xcodeproj`.
 
-## 2. Open in Xcode
-	•	Double-click the .xcodeproj or .xcworkspace.
+### 3. Set Your Development Team
+**TARGET → Signing & Capabilities → Team**
 
-⸻
+### 4. Update the Bundle Identifier
+Change `com.example.MyApp` to a unique identifier.
 
-## 3. Set Your Development Team
+### 5. Run
+Calendar access requires accepting the permission prompt on first launch.
 
-In Xcode, navigate to:
+---
 
-TARGET → Signing & Capabilities → Team
-	
-    •	Select your personal or organizational team.
+## 🛠️ Notes
 
-⸻
+- Add `NSCalendarsUsageDescription` and `NSCalendarsWriteOnlyAccessUsageDescription` to `Info.plist`
+- Requires iOS 17+ for the write-only calendar access API
+- If you see a code signing error, check that Team and Bundle ID are set
 
-## 4. Update the Bundle Identifier
-	•	Change com.example.MyApp to a unique identifier (e.g., com.yourname.MyApp).
+## 📦 Requirements
 
-⸻
-
-🛠️ Notes
-
-	•	If you see a code signing error, check that Team and Bundle ID are set.
-	•	If building for a device, ensure your provisioning profile supports the required capabilities (Push, iCloud, etc.).
-
-📺 YouTube
-[Click here to check out the guide on YouTube](https://youtu.be/5bZUVNO6rxo)
+- Xcode 15+
+- iOS 17+
+- No third-party dependencies
